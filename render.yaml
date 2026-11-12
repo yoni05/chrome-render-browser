@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: chrome-render-browser
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: YTDL_NO_UPDATE
+        value: "1"
+      - key: YOUTUBE_API_KEY
+        sync: false
